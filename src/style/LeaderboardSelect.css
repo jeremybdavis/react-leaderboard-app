@@ -1,4 +1,6 @@
 .dropdown {
+    background-color: #fff;
+    border: 0 !important;
     height: 50px;
     padding: 18px !important;
     width: 100%;
