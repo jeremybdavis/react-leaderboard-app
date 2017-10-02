@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import hcalogo from './hcalogo.png'; 
-import './Navbar.css';
+import hcalogo from '../images/hcalogo.png'; 
+import '../style/Navbar.css';
 import NavbarButtons from './NavbarButtons.js';
 
 class Navbar extends Component {

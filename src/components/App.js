@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../style/App.css';
 import Navbar from './Navbar.js';
 import LeaderboardSelect from './LeaderboardSelect.js';
+import EditableLeadersList from './EditableLeadersList.js';
+import ToggleableLeadersForm from './ToggleableLeadersForm.js';
+
 
 class App extends Component {
   state = {
@@ -14,6 +17,10 @@ class App extends Component {
         <LeaderboardSelect 
           teams={this.state.teams}
         />
+        <EditableLeadersList 
+          teams={this.state.teams}
+        />
+        <ToggleableLeadersForm />
       </div>
     );
   }

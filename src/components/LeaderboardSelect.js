@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Select } from 'semantic-ui-react';
+import '../style/LeaderboardSelect.css';
 
 class LeaderboardSelect extends Component {
     render() {
