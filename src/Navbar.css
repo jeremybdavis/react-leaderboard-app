@@ -1,0 +1,17 @@
+nav {
+    align-items: center;
+    background-color: #001641;
+    display: flex !important;
+    flex-wrap: nowrap;
+    min-height: 60px;
+}
+
+.navbar-brand {
+    height: 30px;
+}
+
+@media (min-width: 992px) {
+    nav {
+        padding: 0 40px;
+    }
+}
