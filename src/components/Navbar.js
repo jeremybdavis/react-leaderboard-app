@@ -8,7 +8,7 @@ class Navbar extends Component {
         return(
             <nav>
                 <img className="navbar-brand" src={hcalogo} alt="logo"/>
-                <NavbarButtons />
+                <NavbarButtons types={this.props.types}/>
             </nav>
         );
     }

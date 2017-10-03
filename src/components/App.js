@@ -47,7 +47,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
+        <Navbar types={this.state.teams}/>
         <LeaderboardSelect 
           teams={this.state.teams}
         />
