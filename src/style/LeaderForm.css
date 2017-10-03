@@ -1,0 +1,13 @@
+.fields {
+    flex-wrap: wrap;
+}
+
+.fields .field {
+    margin: 5px 0 !important;
+    width: 100%;
+}
+
+.field .button {
+    display: block;
+    margin: 0 auto;
+}

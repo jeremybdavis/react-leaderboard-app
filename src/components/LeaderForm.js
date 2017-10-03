@@ -1,42 +1,15 @@
 import React, { Component } from 'react';
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react';
+import '../style/LeaderForm.css';
 
 class LeaderForm extends Component {
-    state = {
-        fields: {
-            teamName: '',
-            departmentName: '',
-            name: '',
-            leaderboardType: '',
-            amountComplete: 0
-        },
-
-        teams: [],
-    }
 
     handleSubmit = (e) => {
-        const teams = [
-            ...this.state.teams,
-            this.state.fields,
-        ];
-
-        this.setState({
-            teams,
-            fields: {
-                teamName: '',
-                departmentName: '',
-                name: '',
-                leaderboardType: '',
-                amountComplete: 0                
-            }
-        });
-        e.preventDefault();
+        this.props.onFormSubmit(e);
     };
 
     handleChange = (e) => {
-        const fields = this.state.fields;
-        fields[e.target.name] = e.target.value;
-        this.setState({ fields });
+        this.props.onFieldChange(e);
     }
 
     render() {
@@ -48,31 +21,31 @@ class LeaderForm extends Component {
                             <Form.Input 
                                 placeholder='Team Name' 
                                 name='teamName'
-                                value={this.state.fields.teamName}
+                                value={this.props.fields.teamName}
                                 onChange={this.handleChange}
                             />
                             <Form.Input 
                                 placeholder='Name' 
                                 name='name'
-                                value={this.state.fields.name}
+                                value={this.props.fields.name}
                                 onChange={this.handleChange}
                             />
                             <Form.Input 
                                 placeholder='Department Name' 
                                 name='departmentName'
-                                value={this.state.fields.departmentName}
+                                value={this.props.fields.departmentName}
                                 onChange={this.handleChange}
                             />
                             <Form.Input 
                                 placeholder='Leaderboard Type' 
                                 name='leaderboardType'
-                                value={this.state.fields.leaderboardType}
+                                value={this.props.fields.leaderboardType}
                                 onChange={this.handleChange}
                             />
                             <Form.Input 
                                 placeholder='Amount Completed' 
                                 name='amountComplete'
-                                value={this.state.fields.amountComplete}
+                                value={this.props.fields.amountComplete}
                                 onChange={this.handleChange}
                             />
                             <Form.Button content='Submit' />

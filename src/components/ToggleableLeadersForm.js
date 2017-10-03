@@ -9,11 +9,26 @@ class ToggleableLeadersForm extends Component {
     handleFormOpen = () => {
         this.setState({ isOpen: true });
     };
+
+    handleFormSubmit = (e) => {
+        this.props.onFormSubmit(e);
+        this.setState({
+            isOpen: false
+        });
+    };
+
+    handleFieldChange = (e) => {
+        this.props.onFieldChange(e);
+    }
     
     render() {
         if (this.state.isOpen) {
             return (
-                <LeaderForm />
+                <LeaderForm 
+                    onFormSubmit={this.handleFormSubmit}
+                    onFieldChange={this.handleFieldChange}
+                    fields={this.props.fields}
+                />
             );
         } else {
             return (

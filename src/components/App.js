@@ -8,8 +8,42 @@ import ToggleableLeadersForm from './ToggleableLeadersForm.js';
 
 class App extends Component {
   state = {
-    teams: []
+    fields: {
+        teamName: '',
+        departmentName: '',
+        name: '',
+        leaderboardType: '',
+        amountComplete: 0
+    },
+
+    teams: [],
   }
+
+  handleCreateFormSubmit = (e) => {
+    const teams = [
+        ...this.state.teams,
+        this.state.fields,
+    ];
+
+    this.setState({
+        teams,
+        fields: {
+            teamName: '',
+            departmentName: '',
+            name: '',
+            leaderboardType: '',
+            amountComplete: 0                
+        }
+    });
+    e.preventDefault();
+  };
+
+  handleFieldChange = (e) => {
+    const fields = this.state.fields;
+    fields[e.target.name] = e.target.value;
+    this.setState({ fields });    
+  }
+
   render() {
     return (
       <div className="App">
@@ -20,7 +54,11 @@ class App extends Component {
         <EditableLeadersList 
           teams={this.state.teams}
         />
-        <ToggleableLeadersForm />
+        <ToggleableLeadersForm 
+          onFormSubmit={this.handleCreateFormSubmit} 
+          onFieldChange={this.handleFieldChange}
+          fields={this.state.fields}
+        />
       </div>
     );
   }
