@@ -21,30 +21,35 @@ class LeaderForm extends Component {
                             <Form.Input 
                                 placeholder='Team Name' 
                                 name='teamName'
+                                ref='teamName'
                                 value={this.props.fields.teamName}
                                 onChange={this.handleChange}
                             />
                             <Form.Input 
                                 placeholder='Name' 
                                 name='name'
+                                ref='name'
                                 value={this.props.fields.name}
                                 onChange={this.handleChange}
                             />
                             <Form.Input 
                                 placeholder='Department Name' 
                                 name='departmentName'
+                                ref='departmentName'
                                 value={this.props.fields.departmentName}
                                 onChange={this.handleChange}
                             />
                             <Form.Input 
                                 placeholder='Leaderboard Type' 
                                 name='leaderboardType'
+                                ref='leaderboardType'
                                 value={this.props.fields.leaderboardType}
                                 onChange={this.handleChange}
                             />
                             <Form.Input 
                                 placeholder='Amount Completed' 
                                 name='amountComplete'
+                                ref='amountComplete'
                                 value={this.props.fields.amountComplete}
                                 onChange={this.handleChange}
                             />

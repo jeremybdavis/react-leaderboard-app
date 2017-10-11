@@ -16,17 +16,24 @@ class App extends Component {
         amountComplete: 0
     },
 
-    teams: [],
+    people: [],
   }
 
   handleCreateFormSubmit = (e) => {
-    const teams = [
-        ...this.state.teams,
+    const people = [
+        ...this.state.people,
         this.state.fields,
     ];
 
+    // const newTeam = [
+    //   ...this.state.teams,
+    //   this.state.fields.teamName,
+    // ]
+
+    // const teams = [...new Set(newTeam)];
+
     this.setState({
-        teams,
+        people,
         fields: {
             teamName: '',
             departmentName: '',
@@ -47,12 +54,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar types={this.state.teams}/>
-        <LeaderboardSelect 
-          teams={this.state.teams}
-        />
+        <Navbar types={this.state.people}/>
+        <LeaderboardSelect teams={this.state.people}/>
         <EditableLeadersList 
-          teams={this.state.teams}
+          teams={this.state.people}
         />
         <ToggleableLeadersForm 
           onFormSubmit={this.handleCreateFormSubmit} 

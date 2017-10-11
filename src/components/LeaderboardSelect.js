@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-import { Select } from 'semantic-ui-react';
+import { Dropdown } from 'semantic-ui-react'
 import '../style/LeaderboardSelect.css';
 
 class LeaderboardSelect extends Component {
     render() {
-        const teams = this.props.teams;
+        const uniqueTeams = [...new Set(this.props.teams.map(team => team.teamName))];
+        const teamList = uniqueTeams.map(team => ({
+            value: team,
+            text: team
+        }));
+
         return (
-            <Select placeholder='Select Team' options={teams}/>
+            <Dropdown placeholder='Select Team' fluid selection options={teamList}/>
         );
     }
 }
