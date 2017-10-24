@@ -17,6 +17,11 @@ class App extends Component {
     },
 
     people: [],
+
+    selected: {
+      team: '',
+      type: '',
+    }
   }
 
   handleCreateFormSubmit = (e) => {
@@ -25,12 +30,12 @@ class App extends Component {
         this.state.fields,
     ];
 
-    // const newTeam = [
-    //   ...this.state.teams,
-    //   this.state.fields.teamName,
-    // ]
+    const selected = this.state.selected;
 
-    // const teams = [...new Set(newTeam)];
+    if(selected.type === '') {
+      selected.type = this.state.fields.leaderboardType;
+      this.setState({ selected });
+    }
 
     this.setState({
         people,
@@ -51,13 +56,35 @@ class App extends Component {
     this.setState({ fields });    
   }
 
+  // Set state for selected type 
+  handleTypeChange = (e) => {
+    const selected = this.state.selected;
+    selected.type = e.target.type;
+    this.setState({ selected });
+  }
+
+  // set state for selected team
+  handleTeamSelect = (e) => {
+    const selected = this.state.selected;
+    selected.team = e.value;
+    this.setState({ selected });
+  }
+
   render() {
     return (
       <div className="App">
-        <Navbar types={this.state.people}/>
-        <LeaderboardSelect teams={this.state.people}/>
-        <EditableLeadersList 
+        <Navbar 
+          types={this.state.people}
+          selected={this.state.selected}
+          onTypeSelect={this.handleTypeChange}
+        />
+        <LeaderboardSelect 
           teams={this.state.people}
+          handleTeamSelect={this.handleTeamSelect}
+        />
+        <EditableLeadersList 
+          people={this.state.people}
+          selected={this.state.selected}
         />
         <ToggleableLeadersForm 
           onFormSubmit={this.handleCreateFormSubmit} 

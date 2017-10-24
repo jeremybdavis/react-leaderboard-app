@@ -1,32 +1,18 @@
 .nav-item {
+    border-bottom: 3px solid transparent;
     color: #fff;
     list-style: none;
-    padding: 0 10px;
+    padding: 20px 15px 0;
+    transition: all .3s ease-in-out;
 }
 
-.navbar-nav {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
+.nav-item:hover {
+    border-bottom: 3px solid #e05929;
+    cursor: pointer;
 }
 
 @media (min-width: 992px) {
-    .navbar-collapse {
-        display: flex;
-        justify-content: flex-end;
-        padding-top: 14px;
-        width: 100%;
-    }
-
     .nav-item.active {
         border-bottom: 3px solid #e05929;
-    }
-
-    .nav-item {
-        padding: 10px 0 15px;
-    }
-
-    .navbar-nav {
-        flex-direction: row;
     }
 }

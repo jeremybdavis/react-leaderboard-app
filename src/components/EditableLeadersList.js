@@ -3,11 +3,25 @@ import '../style/EditableLeadersList.css';
 
 class EditableLeadersList extends Component {
     render() {
-        const teams = this.props.teams;
+        const people = this.props.people;
 
-        if (teams.length > 0) {
+        if (people.length > 0) {
+            const selectedTeamMembers = people.filter(person => {
+                return person.teamName === this.props.selected.team && person.leaderboardType === this.props.selected.type;
+            });
+            console.log(selectedTeamMembers);
             return (
-                <div>Leaders List</div>
+                <div>
+                    {
+                        selectedTeamMembers.map(({departmentName, name, amountComplete}) =>
+                            <div>
+                                <span>{departmentName}</span>
+                                <span>{name}</span>
+                                <span>{amountComplete}</span>
+                            </div>
+                        )
+                    }
+                </div>
             )
         } else {
             return (

@@ -3,15 +3,32 @@ nav {
     background-color: #001641;
     display: flex !important;
     flex-wrap: nowrap;
-    min-height: 60px;
+    height: 60px;
 }
 
 .navbar-brand {
     height: 30px;
 }
 
+.navbar-nav {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
 @media (min-width: 992px) {
     nav {
         padding: 0 40px;
+    }
+
+    .navbar-collapse {
+        display: flex;
+        height: 100%;
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
     }
 }
