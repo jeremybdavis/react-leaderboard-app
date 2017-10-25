@@ -9,11 +9,15 @@ class EditableLeadersList extends Component {
             const selectedTeamMembers = people.filter(person => {
                 return person.teamName === this.props.selected.team && person.leaderboardType === this.props.selected.type;
             });
-            console.log(selectedTeamMembers);
+
+            const sortedMembers = selectedTeamMembers.sort((a, b) => (
+                b.amountComplete - a.amountComplete
+            ));
+
             return (
                 <div>
                     {
-                        selectedTeamMembers.map(({departmentName, name, amountComplete}) =>
+                        sortedMembers.map(({departmentName, name, amountComplete}) =>
                             <div>
                                 <span>{departmentName}</span>
                                 <span>{name}</span>
