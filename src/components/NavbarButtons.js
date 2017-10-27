@@ -8,19 +8,27 @@ class NavbarButtons extends Component {
         this.props.onButtonClick(e);
     }
     render() {
-        const uniqueTypes = [...new Set(this.props.types.map(item => item.leaderboardType))];
-        return (
-            uniqueTypes.map((item, i) => 
-                <li 
-                    key={i}
-                    type={item} 
-                    className="nav-item"
-                    onClick={this.onTypeButtonClick}
-                >
-                    {item}
-                </li>
+        const listTypes = this.props.types;
+        if (listTypes.length > 0) {
+            const uniqueTypes = [...new Set(listTypes.map(item => item.leaderboardType))];
+
+            return (
+                uniqueTypes.map((item, i) => 
+                    <li 
+                        key={i}
+                        type={item} 
+                        className="nav-item"
+                        onClick={this.onTypeButtonClick}
+                    >
+                        {item}
+                    </li>
+                )
+            );
+        } else {
+            return (
+                ''
             )
-        );
+        }
     }
 }
 

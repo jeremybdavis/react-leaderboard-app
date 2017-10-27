@@ -4,6 +4,7 @@ import Navbar from './Navbar.js';
 import LeaderboardSelect from './LeaderboardSelect.js';
 import EditableLeadersList from './EditableLeadersList.js';
 import ToggleableLeadersForm from './ToggleableLeadersForm.js';
+import {base} from '../base.js';
 
 
 class App extends Component {
@@ -22,6 +23,17 @@ class App extends Component {
       team: '',
       type: '',
     }
+  }
+
+  componentWillMount() {
+    this.peopleRef = base.syncState('people', {
+      context: this,
+      state: 'people'
+    });
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.peopleRef);
   }
 
   handleCreateFormSubmit = (e) => {

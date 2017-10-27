@@ -10,15 +10,22 @@ class LeaderboardSelect extends Component {
     }
 
     render() {
-        const uniqueTeams = [...new Set(this.props.teams.map(team => team.teamName))];
-        const teamList = uniqueTeams.map(team => ({
-            value: team,
-            text: team
-        }));
-
-        return (
-            <Dropdown placeholder='Select Team' fluid selection options={teamList} onChange={this.onSelectTeam}/>
-        );
+        const teamNames = this.props.teams;
+        if (teamNames.length > 0) {
+            const uniqueTeams = [...new Set(teamNames.map(team => team.teamName))];
+            const teamList = uniqueTeams.map(team => ({
+                value: team,
+                text: team
+            }));
+    
+            return (
+                <Dropdown placeholder='Select Team' fluid selection options={teamList} onChange={this.onSelectTeam}/>
+            );
+        } else {
+            return (
+                ''
+            );
+        }
     }
 }
 
